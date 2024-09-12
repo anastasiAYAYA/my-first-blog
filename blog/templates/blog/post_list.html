@@ -7,15 +7,12 @@
         <header>
             <h2><a href="/">Giga super blog</a></h2>
         </header>
-        <article>
-            <time>Published: 14:00:00</time>
-            <h3><a href="/">My giga first post</a> </h3>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </article>
-        <article>
-            <time>Published: 14:00:00</time>
-            <h3><a href="/">My giga second post</a> </h3>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </article>
+        {% for post in posts %}
+            <article>
+                <time>Published: {{ post.published_date }}</time>
+                <h3><a href="/">{{ post.title }}</a></h3>
+                <p>{{ post.text|linebreaks }}</p>
+            </article>
+        {% endfor %}
     </body>
 </html>
